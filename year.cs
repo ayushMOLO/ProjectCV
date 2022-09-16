@@ -19,5 +19,9 @@ namespace ProjectCV
             module[1] = "oop";
         }
 
+        public year(string[] module)
+        {
+            this.module = module;
+        }
     }
 }

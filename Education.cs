@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectCV
 {
-    internal class Education
+    internal class Education:Display
     {
         string Name;
         year[] years;
@@ -21,12 +21,12 @@ namespace ProjectCV
 
         }
 
-        public void Displaysub()
+        public void DislayName()
         {
             Console.WriteLine(Name);
             //DisplayYear();
         }
-
+     
         public void DisplayYear()
         {
             for (int i = 0; i < years.Length; i++)
@@ -45,5 +45,7 @@ namespace ProjectCV
             }
 
         } 
+
+        
     }
 }

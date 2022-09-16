@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectCV
 {
-    internal class Experience
+    internal class Experience:Display
     {
         //private string CompanyName;
         //private DateTime dateFrom;
@@ -33,7 +33,7 @@ namespace ProjectCV
             CompanyName = companyName;
         }
 
-        public void Displaysub() {
+        public void DislayName() {
             
             Console.WriteLine("Name of company " + CompanyName);
 
@@ -46,13 +46,6 @@ namespace ProjectCV
             Console.WriteLine("Descrition "+Description);   
 
         }
-
-
-
-
-
-
-
 
     }
 }

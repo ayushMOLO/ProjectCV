@@ -8,13 +8,12 @@ namespace ProjectCV
 {
     internal class Program
     {
-        public static void Displayintro()
+        public static void intro()
         {
             Console.WriteLine("Introducing myself");
             Console.Write("My name is Vishishta P.Nursimooloo. I am in my second year of unversity at the University of Mauritius ");
             Console.WriteLine("This is my CV");
             Console.WriteLine();
-
         }
 
         public static void Menu() {
@@ -22,25 +21,20 @@ namespace ProjectCV
             Console.WriteLine("1.Experience");
             Console.WriteLine("2.Education");
             Console.WriteLine("3.Skills");
-            
-
-        }
+         }
 
         public static void ResetScreen() {
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-
             Console.WriteLine("press any key to continue...");
             Console.ReadLine();
             Console.Clear();
         }
 
         public static int Enter(string name) {
-            
-        Console.WriteLine("Enter "+ name);
-            return int.Parse(Console.ReadLine());
-            
+            Console.WriteLine("Enter "+ name);
+            return int.Parse(Console.ReadLine());       
         }
 
 
@@ -50,16 +44,10 @@ namespace ProjectCV
 
             while (true)
             {
-                Displayintro();
+                intro();
                 Menu();
-                
-
-              
-
+               
                int choice=Enter("Choice");
-
-
-                year[] year = new year[2]; 
 
                 if (choice == 1)
                 {
@@ -73,21 +61,24 @@ namespace ProjectCV
                     for (; i < xp.Length; i++)
                     {
                         Console.Write(i + 1 + " ");
-                        xp[i].Displaysub();
+                        xp[i].DislayName();
                     }
                     i++;
                     Console.WriteLine(i  + " GO BACK");
 
-                    int choice2=Enter("choice");
+                    int secondChoice=Enter("choice");
 
-                    if (choice2 < i)
+                    if (secondChoice < i)
                     {
-                        xp[choice2 - 1].DisplayAll();
+                        xp[secondChoice - 1].DisplayAll();
                     }
 
-                    else { Console.Clear(); }
-
-                    ResetScreen();
+                    else if (secondChoice == i)
+                    { 
+                        Console.Clear();
+                       
+                    }
+                   
                 }//end experience
 
                 if (choice == 2) {
@@ -99,24 +90,26 @@ namespace ProjectCV
                     {
                         educations[i] = new Education();
                         Console.Write(i + 1 + " ");
-                        educations[i].Displaysub();
+                        educations[i].DislayName();
                     }
                     i++;
                     Console.WriteLine(i + " GO BACK");
 
-                    int choice2=Enter("choice");
+                    int secondChoice=Enter("choice");
 
-                    if (choice2 < i)
+                    if (secondChoice < i)
                     {
-                        educations[choice2 - 1].DisplayYear();
+                        educations[secondChoice - 1].DisplayYear();
                        int level= Enter("Level");
-                        educations[choice2 - 1].DisplayModule(level);
-                
+                        educations[secondChoice - 1].DisplayModule(level);
+                        
                     }
 
-                    else { Console.Clear(); }
-
-                    ResetScreen();
+                    else if (secondChoice==i)
+                    { Console.Clear();
+                        
+                    }
+                    
                 }//End education
 
                 if (choice == 3)
@@ -124,33 +117,37 @@ namespace ProjectCV
                     Console.Clear();
                     Console.WriteLine("1.Personal");
                     Console.WriteLine("2.technical");
+                    Console.WriteLine("3.GO BACK");
                     skills skill;
-                    int  choice2 = Enter("choice");
-                    if (choice2 == 1)
+                    int secondChoice = Enter("choice");
+
+                    if (secondChoice == 1)
                     {
                         Console.Clear();
                         skill = new skills();
-                        skill.AddPersonal("cnne cuit");
-                        skill.AddPersonal("conne zafer");
+                        skill.AddPersonal("eloquent");
+                        skill.AddPersonal("fast learner");
                         skill.DisplayPersonal();
-                        ResetScreen();
+
                     }
 
-                    if (choice2 == 2)
+                    if (secondChoice == 2)
                     {
                         Console.Clear();
                         skill = new skills();
                         skill.AddTechnical("C++");
-                        skill.AddTechnical("python");
+                        skill.AddTechnical("Java");
+                        skill.AddTechnical("C");
                         skill.DisplayTechnical();
-                        ResetScreen();
+
                     }
-                
-                
+
+                    else if (secondChoice==3){ ResetScreen(); }
+
+
                 }//end skill
 
-
-
+                ResetScreen(); 
             }
 
             
